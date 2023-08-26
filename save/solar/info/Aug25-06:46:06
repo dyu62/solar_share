@@ -1,0 +1,29 @@
+Random Seed:  3407
+acc  val : 0.957, Test : 0.922
+recall  val : 0.905, Test : 0.905
+precision  val : 0.864, Test : 0.731
+Fscore  val : 0.884, Test : 0.809
+roc  val : 0.993, Test : 0.979
+iou  val : 0.717, Test : 0.728
+tss  val : 0.874, Test : 0.831
+Best info: [200, -0.8837209302325582]
+['data_dir', 'data/allsolar_full_png512']
+['model', 'our']
+['train_batch', 16]
+['test_batch', 16]
+['time_length', 4]
+['h_ch', 32]
+['eta', 0.1]
+['att_coef', 1]
+['rec_coef', 0.5]
+['anno_p', 1]
+['dataset', 'solar']
+['log', True]
+['loadmodel', False]
+['test_per_round', 10]
+['patience', 30]
+['nepoch', 201]
+['lr', 0.0001]
+['manualSeed', False]
+['man_seed', 12345]
+['save_dir', './save/solar']
