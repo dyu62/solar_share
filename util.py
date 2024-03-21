@@ -102,30 +102,23 @@ def normalize_image_wholetime(cam):
     return cam
 
 def show_cam_on_image(img,mask,filenames,path):
-    # time_length=img.shape[0]
-    # for i in range(time_length):
-    #     save_path = os.path.join(path, filenames[-1]+filenames[i])
-    #     heatmap = cv2.applyColorMap(np.uint8(255 * mask[i]), cv2.COLORMAP_JET) 
-    #     heatmap = np.float32(heatmap) / 255
-    #     if img[i].shape[0]==1:
-    #         cam = heatmap + img[i][0][:,:,None]
-    #         cam = cam / np.max(cam)
-    #         cv2.imwrite(save_path, np.uint8(255 * cam))
-    #     elif img[i].shape[0]==4:
-    #         tempimage=normalize_image(img[i])
-    #         for j in range(4):
-    #             tempimage_j=tempimage.transpose((1,2,0))[:,:,j][:,:,None]
-    #             cam = heatmap + tempimage_j
-    #             cam = cam / np.max(cam)
-    #             cv2.imwrite(save_path+"_"+str(j)+".png", np.uint8(255 * cam))
     time_length=img.shape[0]
     for i in range(time_length):
-        save_path = os.path.join(path, "origial_"+filenames[i])
-        tempimage=normalize_image(img[i])
-        for j in range(4):
-            tempimage_j=tempimage.transpose((1,2,0))[:,:,j][:,:,None]
-            cam = tempimage_j
-            cv2.imwrite(save_path+"_"+str(j)+".png", np.uint8(255 * cam))
+        save_path = os.path.join(path, filenames[-1]+filenames[i])
+        heatmap = cv2.applyColorMap(np.uint8(255 * mask[i]), cv2.COLORMAP_JET) 
+        heatmap = np.float32(heatmap) / 255
+        if img[i].shape[0]==1:
+            cam = heatmap + img[i][0][:,:,None]
+            cam = cam / np.max(cam)
+            cv2.imwrite(save_path, np.uint8(255 * cam))
+        elif img[i].shape[0]==4:
+            tempimage=normalize_image(img[i])
+            for j in range(4):
+                tempimage_j=tempimage.transpose((1,2,0))[:,:,j][:,:,None]
+                cam = heatmap + tempimage_j
+                cam = cam / np.max(cam)
+                cv2.imwrite(save_path+"_"+str(j)+".png", np.uint8(255 * cam))
+
 
 class FeatureExtractor():
     """ Class for extracting activations and 

@@ -304,7 +304,7 @@ def main(args,train_Loader,val_Loader,test_Loader):
 
     if args.loadmodel:
         try:
-            suffix='Jun14-16:31:13'
+            suffix='Aug25-06:46:06'
             model.load_state_dict(torch.load(os.path.join("save",args.dataset,'model','best_model_'+suffix+'.pth')),strict=True)
             tmodel.load_state_dict(torch.load(os.path.join("save",args.dataset,'model','best_tmodel_'+suffix+'.pth')),strict=True)
             finalmlpmodel.load_state_dict(torch.load(os.path.join("save",args.dataset,'model','best_finalmlpmodel_'+suffix+'.pth')),strict=True)
